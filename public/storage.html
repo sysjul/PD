@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Past Measurements</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="storage-page">
+
+<div class="container">
+    <h1>Past Measurements</h1>
+    <table id="measurements-table">
+        <thead>
+        <tr>
+            <th>Wall</th>
+            <th>Length</th>
+            <th>Height</th>
+            <th>Paint Volume</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Past measurements will be inserted here -->
+        </tbody>
+    </table>
+</div>
+
+<!-- Bottom Navigation Buttons -->
+<div class="bottom-nav">
+    <button id="home-btn" class="nav-btn">
+        <img src="home-icon.svg" alt="Home" class="nav-icon">
+    </button>
+    <button id="storage-btn" class="nav-btn">
+        <img src="storage-icon.svg" alt="Storage" class="nav-icon">
+    </button>
+    <button id="user-btn" class="nav-btn">
+        <img src="user-icon.svg" alt="User" class="nav-icon">
+    </button>
+</div>
+
+<script>
+    // Simulating fetching past measurements from a server (replace with actual API call if needed)
+    const pastMeasurements = [
+        { wall: 'Wall 1', length: '8.38 m', height: '0.91 m', paintVolume: '0.76 liters' },
+        { wall: 'Wall 2', length: '6.20 m', height: '2.10 m', paintVolume: '1.50 liters' },
+        { wall: 'Wall 3', length: '7.50 m', height: '2.50 m', paintVolume: '1.90 liters' },
+        { wall: 'Wall 4', length: '5.00 m', height: '3.00 m', paintVolume: '2.10 liters' }
+    ];
+
+    // Function to display past measurements
+    function displayPastMeasurements() {
+        const tableBody = document.querySelector('#measurements-table tbody');
+        pastMeasurements.forEach(measurement => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${measurement.wall}</td>
+                <td>${measurement.length}</td>
+                <td>${measurement.height}</td>
+                <td>${measurement.paintVolume}</td>
+            `;
+            tableBody.appendChild(row);
+        });
+    }
+
+    // Call the function to display the measurements when the page loads
+    window.onload = displayPastMeasurements;
+
+    // Event listeners for bottom nav buttons
+    document.getElementById('home-btn').addEventListener('click', () => {
+        window.location.href = '/';  // Go to Home
+    });
+
+    document.getElementById('storage-btn').addEventListener('click', () => {
+        window.location.href = '/storage';  // Stay on the Storage page
+    });
+
+    document.getElementById('user-btn').addEventListener('click', () => {
+        window.location.href = '/user';  // Go to User Profile page
+    });
+</script>
+
+</body>
+</html>

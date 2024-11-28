@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detected Walls</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Detected Walls</h1>
+    <div class="wall-capture">
+        <img src="wall-sample.jpg" alt="Wall Capture" id="wall-image">
+    </div>
+
+    <ul id="walls-list">
+        <li data-wall="1">Wall 1</li>
+        <li data-wall="2">Wall 2</li>
+        <li data-wall="3">Wall 3</li>
+        <li data-wall="4">Wall 4</li>
+    </ul>
+
+    <div id="wall-info">
+        <p id="wall-measurement">Select a wall to view details</p>
+    </div>
+</div>
+
+<script>
+    // Add event listeners to each wall item
+    const wallsList = document.getElementById('walls-list');
+    wallsList.addEventListener('click', function(event) {
+        const wall = event.target;
+        if (wall.tagName === 'LI') {
+            // Simulate wall measurement data
+            const length = (Math.random() * 10).toFixed(2);
+            const height = (Math.random() * 4).toFixed(2);
+            const paintVolumeRequired = (length * height * 0.1).toFixed(2);
+
+            // Display the wall measurement information
+            const wallInfo = document.getElementById('wall-info');
+            wallInfo.innerHTML = `
+                    <p><strong>Wall Measurement</strong></p>
+                    <p>Length: ${length} m, Height: ${height} m</p>
+                    <p>Paint Volume: ${paintVolumeRequired} liters</p>
+                `;
+        }
+    });
+</script>
+
+</body>
+</html>

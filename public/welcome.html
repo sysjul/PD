@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CANVAS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="welcome-page">
+
+<div class="container">
+    <h1>CANVAS</h1>
+    <button id="capture-btn">Capture Image</button>
+</div>
+
+<!-- Bottom Navigation Buttons -->
+<div class="bottom-nav">
+    <button id="home-btn" class="nav-btn">
+        <img src="home-icon.svg" alt="Home" class="nav-icon">
+    </button>
+    <button id="storage-btn" class="nav-btn">
+        <img src="storage-icon.svg" alt="Storage" class="nav-icon">
+    </button>
+    <button id="user-btn" class="nav-btn">
+        <img src="user-icon.svg" alt="User" class="nav-icon">
+    </button>
+</div>
+
+<script>
+    // Navigate to webcam preview page when 'Capture Image' button is clicked
+    document.getElementById('capture-btn').addEventListener('click', () => {
+        window.location.href = '/webcam';
+    });
+
+    // Add event listeners for bottom nav buttons
+    document.getElementById('home-btn').addEventListener('click', () => {
+        window.location.href = '/';  // Go to Home
+    });
+
+    document.getElementById('storage-btn').addEventListener('click', () => {
+        window.location.href = '/storage';  // Go to Storage (you need to define this route)
+    });
+
+    document.getElementById('user-btn').addEventListener('click', () => {
+        window.location.href = '/user';  // Go to User Profile (you need to define this route)
+    });
+</script>
+
+</body>
+</html>
