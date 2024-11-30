@@ -5,6 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detected Walls</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #88C897;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        h1 {
+            color: #1C4B27;
+        }
+
+        /* Wall capture image */
+        .wall-capture {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #wall-image {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #1C4B27;
+            border-radius: 8px;
+        }
+
+        /* Walls list */
+        #walls-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        #walls-list li {
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #1C4B27;
+            border-radius: 4px;
+            color: #1C4B27;
+            cursor: pointer;
+        }
+
+        #walls-list li:hover {
+            background-color: #a3efa9;
+            color: rgb(150, 190, 154);
+        }
+
+        /* Wall info */
+        #wall-info {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #4CAF50;
+            border-radius: 4px;
+            background-color: #a3efa9;
+        }
+
+        /* Bottom Navigation Styling */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #2B572C; /* Dark green background for navigation */
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 20px;
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-icon {
+            font-size: 1rem;
+            color: #FFFFFF; /* White for nav icons */
+        }
+
+        .nav-btn:hover .nav-icon {
+            color: #DFF0DF; /* Lighter green on hover */
+        }
+    </style>
 </head>
 <body>
 
@@ -26,6 +111,16 @@
     </div>
 </div>
 
+<!-- Bottom Navigation Buttons -->
+<div class="bottom-nav">
+    <button id="home-btn" class="nav-btn">
+        <span class="nav-icon">🏠</span>
+    </button>
+    <button id="storage-btn" class="nav-btn">
+        <span class="nav-icon">💾</span>
+    </button>
+</div>
+
 <script>
     // Add event listeners to each wall item
     const wallsList = document.getElementById('walls-list');
@@ -41,10 +136,20 @@
             const wallInfo = document.getElementById('wall-info');
             wallInfo.innerHTML = `
                     <p><strong>Wall Measurement</strong></p>
-                    <p>Length: ${length} m, Height: ${height} m</p>
+                    <p>Length: ${length} m</p>
+                    <p>Height: ${height} m</p>
                     <p>Paint Volume: ${paintVolumeRequired} liters</p>
                 `;
         }
+    });
+
+    // Add event listeners for bottom nav buttons
+    document.getElementById('home-btn').addEventListener('click', () => {
+        window.location.href = '/';  // Go to Home
+    });
+
+    document.getElementById('storage-btn').addEventListener('click', () => {
+        window.location.href = '/storage';  // Go to Storage
     });
 </script>
 

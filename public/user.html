@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #A8E6CF;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #FFFFFF;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #CCC;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #32CD32;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #28A745;
+        }
+        .forgot-password {
+            text-align: center;
+            margin: 10px 0;
+        }
+        .social-button {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #CCC;
+            border-radius: 5px;
+            background-color: #F5F5F5;
+            margin: 10px 0;
+            cursor: pointer;
+            text-align: center;
+        }
+        .social-button:hover {
+            background-color: #EAEAEA;
+        }
+        .link {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function signIn() {
+            // In a real application, you would validate input here
+            const email = document.querySelector('input[type="email"]').value;
+            const password = document.querySelector('input[type="password"]').value;
+
+            // Simple validation for demonstration
+            if (email && password) {
+                // Redirect to the home page
+                window.location.href = 'welcome.html'; // Change this to your home page
+            } else {
+                alert("Please enter your email and password.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Canvas</h1>
+        <p>Enter your details below to sign in into your account.</p>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button onclick="signIn()">Sign In</button> <!-- Call signIn function on click -->
+        <div class="forgot-password">
+            <a href="#">Forgot password?</a>
+        </div>
+        <div class="social-button">Continue with Google</div>
+        <div class="social-button">Continue with Apple</div>
+        <div class="link">
+            Already have an account? <a href="#">Sign Up</a>
+        </div>
+    </div>
+</body>
+</html>

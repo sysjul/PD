@@ -4,11 +4,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CANVAS</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* General Reset */
+        body, h1, button {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            box-sizing: border-box;
+        }
+
+        /* Welcome Page Styling */
+        body.welcome-page {
+            background-color: #88C897; /* Match the green background */
+            color: #1C4B27; /* Contrasting text color */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* Container Styling */
+        .container {
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 4rem; /* Larger font for the logo emoji */
+            margin-bottom: 10px; /* Space between logo and heading */
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #2B572C; /* Dark green for buttons */
+            color: #FFFFFF;
+            font-size: 1rem;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background-color: #234623; /* Slightly darker on hover */
+        }
+
+       /* Bottom Navigation Styling */
+       .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #2B572C; /* Dark green background for navigation */
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 20px;
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-icon {
+            font-size: 1 rem;
+            color: #FFFFFF; /* White for nav icons */
+        }
+
+        .nav-btn:hover .nav-icon {
+            color: #DFF0DF; /* Lighter green on hover */
+        }
+    </style>
 </head>
 <body class="welcome-page">
 
 <div class="container">
+    <!-- Logo -->
+    <div class="logo">🎨</div>
     <h1>CANVAS</h1>
     <button id="capture-btn">Capture Image</button>
 </div>
@@ -16,14 +93,10 @@
 <!-- Bottom Navigation Buttons -->
 <div class="bottom-nav">
     <button id="home-btn" class="nav-btn">
-        <img src="home-icon.svg" alt="Home" class="nav-icon">
+        <span role="img" aria-label="Home" class="nav-icon">🏠</span>
     </button>
     <button id="storage-btn" class="nav-btn">
-        <img src="storage-icon.svg" alt="Storage" class="nav-icon">
-    </button>
-    <button id="user-btn" class="nav-btn">
-        <img src="user-icon.svg" alt="User" class="nav-icon">
-    </button>
+        <span role="img" aria-label="Storage" class="nav-icon">💾</span>
 </div>
 
 <script>
@@ -39,10 +112,6 @@
 
     document.getElementById('storage-btn').addEventListener('click', () => {
         window.location.href = '/storage';  // Go to Storage (you need to define this route)
-    });
-
-    document.getElementById('user-btn').addEventListener('click', () => {
-        window.location.href = '/user';  // Go to User Profile (you need to define this route)
     });
 </script>
 

@@ -4,9 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Past Measurements</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #88C897; /* Light green background */
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        h1 {
+            color: #1C4B27;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Table styling */
+        #measurements-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #e8f5e9; /* Light green for table background */
+        }
+
+        #measurements-table th,
+        #measurements-table td {
+            padding: 10px;
+            border: 1px solid #4CAF50; /* Green borders */
+            text-align: center;
+        }
+
+        #measurements-table th {
+            background-color: #4CAF50; /* Green header */
+            color: white;
+        }
+
+        #measurements-table td {
+            color: #4CAF50;
+        }
+
+        /* Bottom Navigation Styling */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #2B572C; /* Dark green background for navigation */
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 20px;
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-icon {
+            font-size: 1rem;
+            color: #FFFFFF; /* White for nav icons */
+        }
+
+        .nav-btn:hover .nav-icon {
+            color: #DFF0DF; /* Lighter green on hover */
+        }
+    </style>
 </head>
-<body class="storage-page">
+<body>
 
 <div class="container">
     <h1>Past Measurements</h1>
@@ -28,13 +96,10 @@
 <!-- Bottom Navigation Buttons -->
 <div class="bottom-nav">
     <button id="home-btn" class="nav-btn">
-        <img src="home-icon.svg" alt="Home" class="nav-icon">
+        <span class="nav-icon">🏠</span>
     </button>
     <button id="storage-btn" class="nav-btn">
-        <img src="storage-icon.svg" alt="Storage" class="nav-icon">
-    </button>
-    <button id="user-btn" class="nav-btn">
-        <img src="user-icon.svg" alt="User" class="nav-icon">
+        <span class="nav-icon">💾</span>
     </button>
 </div>
 
@@ -72,10 +137,6 @@
 
     document.getElementById('storage-btn').addEventListener('click', () => {
         window.location.href = '/storage';  // Stay on the Storage page
-    });
-
-    document.getElementById('user-btn').addEventListener('click', () => {
-        window.location.href = '/user';  // Go to User Profile page
     });
 </script>
 

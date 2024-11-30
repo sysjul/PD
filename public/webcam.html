@@ -4,7 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Webcam Preview</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* General Reset */
+        body, h1, button {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #88C897; /* Green background */
+            color: #1C4B27; /* Contrasting text color */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .webcam-preview {
+            margin: 20px auto;
+            max-width: 90%;
+            border: 2px solid #1C4B27;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+        }
+
+        button {
+            background-color: #1C4B27; /* Dark green */
+            color: #FFFFFF; /* White text */
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #145B2A; /* Darker green on hover */
+        }
+
+        #detected-walls-btn {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            width: 200px;
+        }
+
+        /* Bottom Navigation Styling */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #2B572C; /* Dark green background for navigation */
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 20px;
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-icon {
+            font-size: 1 rem;
+            color: #FFFFFF; /* White for nav icons */
+        }
+
+        .nav-btn:hover .nav-icon {
+            color: #DFF0DF; /* Lighter green on hover */
+        }
+    </style>
 </head>
 <body>
 
@@ -14,6 +102,16 @@
         <video id="webcam" autoplay></video>
     </div>
     <button id="detected-walls-btn">Detected Walls</button>
+</div>
+
+<!-- Bottom Navigation Buttons -->
+<div class="bottom-nav">
+    <button id="home-btn" class="nav-btn">
+        <span role="img" aria-label="Home" class="nav-icon">🏠</span>
+    </button>
+    <button id="storage-btn" class="nav-btn">
+        <span role="img" aria-label="Storage" class="nav-icon">💾</span>
+    </button>
 </div>
 
 <script>
@@ -29,6 +127,15 @@
     // Navigate to detected walls page
     document.getElementById('detected-walls-btn').addEventListener('click', () => {
         window.location.href = '/detected-walls';
+    });
+
+    // Add event listeners for bottom nav buttons
+    document.getElementById('home-btn').addEventListener('click', () => {
+        window.location.href = '/';  // Go to Home
+    });
+
+    document.getElementById('storage-btn').addEventListener('click', () => {
+        window.location.href = '/storage';  // Go to Storage
     });
 </script>
 

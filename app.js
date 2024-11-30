@@ -8,10 +8,10 @@ const port = 3000;
 app.use(express.static(path.join(__dirname, 'public')));
 
 let pastMeasurements = [
-    { wall: 'Wall 1', length: '8.38 m', height: '0.91 m', paintVolume: '0.76 liters' },
-    { wall: 'Wall 2', length: '6.20 m', height: '2.10 m', paintVolume: '1.50 liters' },
-    { wall: 'Wall 3', length: '7.50 m', height: '2.50 m', paintVolume: '1.90 liters' },
-    { wall: 'Wall 4', length: '5.00 m', height: '3.00 m', paintVolume: '2.10 liters' }
+    { wall: 'Wall 1:', length: '8.38 m', height: '0.91 m', paintVolume: '0.76 liters' },
+    { wall: 'Wall 2:', length: '6.20 m', height: '2.10 m', paintVolume: '1.50 liters' },
+    { wall: 'Wall 3:', length: '7.50 m', height: '2.50 m', paintVolume: '1.90 liters' },
+    { wall: 'Wall 4:', length: '5.00 m', height: '3.00 m', paintVolume: '2.10 liters' }
 ];
 
 const server = app.listen(port, () => {
@@ -36,10 +36,15 @@ app.get('/detected-walls', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'detected-walls.html'));  // Serve detected-walls.html for /detected-walls route
 });
 
+// Serve the storage page when visiting '/storage'
 app.get('/storage', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'storage.html'));
 });
 
+// Uncomment the following code if you need a user route
+// app.get('/user', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'public', 'user.html'));
+// });
 
 // Handle the analysis event (for wall measurements)
 io.on('connection', (socket) => {
